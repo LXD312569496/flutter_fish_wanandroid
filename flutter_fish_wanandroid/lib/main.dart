@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_fish_wanandroid/drawer/drawer_page.dart';
 import 'package:flutter_fish_wanandroid/home/home_page.dart';
 import 'package:flutter_fish_wanandroid/widget/my_will_pop_scope.dart';
 
@@ -74,6 +75,9 @@ class _MyHomePageState extends State<MyHomePage>
   Widget build(BuildContext context) {
     return MyWillPopScope(
       child: Scaffold(
+        drawer: new Drawer(
+          child: DrawerPage().buildPage(null),
+        ),
         body: new TabBarView(
           children: children,
           controller: tabController,
