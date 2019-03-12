@@ -10,14 +10,14 @@ Widget buildView(HomePageState state, dispatch, ViewService viewService) {
       title: new Text("玩Android"),
     ),
     body: Container(
-      child: Column(
-        children: <Widget>[
-          viewService.buildComponent("banner"),
-          new Expanded(
-              child: ListView.builder(
-            itemBuilder: listAdapter.itemBuilder,
-            itemCount: listAdapter.itemCount,
-          )),
+      child: CustomScrollView(
+        slivers: <Widget>[
+          new SliverToBoxAdapter(
+            child: viewService.buildComponent("banner"),
+          ),
+          new SliverList(
+              delegate: new SliverChildBuilderDelegate(listAdapter.itemBuilder,
+                  childCount: listAdapter.itemCount))
         ],
       ),
     ),

@@ -33,13 +33,13 @@ class DioUtil {
   }
 
   //get方法返回一个map的future类型
-  void get(String url,
+  Future get(String url,
       {Map data,
       Options options,
       CancelToken cancelToken,
       NetworkSuccess onSuccess,
-      NetworkError onError}) {
-    _request(url, TYPE_GET,
+      NetworkError onError}) async{
+    return _request(url, TYPE_GET,
         data: data,
         options: options,
         cancelToken: cancelToken,
@@ -48,13 +48,13 @@ class DioUtil {
   }
 
   //post方法
-  void post(String url,
+  Future post(String url,
       {Map data,
       Options options,
       CancelToken cancelToken,
       NetworkSuccess onSuccess,
-      NetworkError onError}) {
-    _request(url, TYPE_POST,
+      NetworkError onError}) async{
+    return _request(url, TYPE_POST,
         data: data,
         options: options,
         cancelToken: cancelToken,
@@ -62,7 +62,7 @@ class DioUtil {
         onError: onError);
   }
 
-  void _request(String url, String type,
+  Future _request(String url, String type,
       {Map data,
       Options options,
       CancelToken cancelToken,
@@ -82,11 +82,13 @@ class DioUtil {
 
       if (response.statusCode != 200) {
         var errorMsg = "网络请求错误，状态码:${response.statusCode}";
-        onError(errorMsg);
+        return new Future.error(errorMsg);
       } else {
         //后面这部分可以根据业务更为具体的封装了一个统一的返回json的处理
         //response.data的
-        onSuccess(response.data);
+//        onSuccess(response.data);
+//        print("onSuccess");
+        return response.data;
       }
     } catch (e) {
       onError(e.toString());

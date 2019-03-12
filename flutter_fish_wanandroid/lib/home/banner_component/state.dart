@@ -1,26 +1,20 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter_fish_wanandroid/home/state.dart';
+import 'package:flutter_fish_wanandroid/model/model.dart';
 
+class BannerState extends Cloneable<BannerState> {
 
-class BannerState extends Cloneable<BannerState>{
-
+  List<BannerModel> bannerList;
 
   @override
   BannerState clone() {
-    return null;
+    return new BannerState()..bannerList = bannerList;
   }
 }
 
-
-class BannerConnector extends ConnOp<HomePageState,BannerState>{
-
+class BannerConnector extends ConnOp<HomePageState, List<BannerModel>> {
   @override
-  BannerState get(HomePageState state) {
-
-  }
-
-  @override
-  void set(HomePageState state, BannerState substate) {
-
+  List<BannerModel> get(HomePageState state) {
+    return state.bannerList;
   }
 }

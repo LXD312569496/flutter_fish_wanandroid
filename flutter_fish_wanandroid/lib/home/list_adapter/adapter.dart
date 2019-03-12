@@ -12,8 +12,8 @@ class HomeListAdapter extends DynamicFlowAdapter<HomePageState> {
 class HomeListConnect implements Connector<HomePageState, List<ItemBean>> {
   @override
   List<ItemBean> get(HomePageState state) {
-    if (!state.homeList?.isEmpty) {
-      return state.homeList.map((data) {
+    if (!state.articleList?.isEmpty) {
+      return state.articleList.map((data) {
         return new ItemBean("type_normal", data);
       }).toList();
     } else {
