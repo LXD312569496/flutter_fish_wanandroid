@@ -76,9 +76,9 @@ class DioUtil {
       } else if (type == TYPE_POST) {
         response = await dio.post(url, data: data);
       }
-      print("response:${response}");
+
+      print("response:statusCode:${response}");
       print("response:${response.statusCode}");
-      print("response:${response.data}");
 
       if (response.statusCode != 200) {
         var errorMsg = "网络请求错误，状态码:${response.statusCode}";

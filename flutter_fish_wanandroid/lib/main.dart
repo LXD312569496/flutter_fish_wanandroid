@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fish_wanandroid/drawer/drawer_page.dart';
 import 'package:flutter_fish_wanandroid/home/home_page.dart';
+import 'package:flutter_fish_wanandroid/knowledge/knowledge_page.dart';
 import 'package:flutter_fish_wanandroid/widget/my_will_pop_scope.dart';
+import 'package:logs/logs.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  final Log httpLog = new Log('http');
+  httpLog.enabled = true;
+
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -38,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage>
     super.initState();
     children = new List();
     children.add(new HomePage().buildPage(null));
-    children.add(new HomePage().buildPage(null));
+    children.add(new KnowledgePage().buildPage(null));
     children.add(new HomePage().buildPage(null));
     children.add(new HomePage().buildPage(null));
 

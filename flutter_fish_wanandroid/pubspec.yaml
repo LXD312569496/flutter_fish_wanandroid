@@ -30,7 +30,8 @@ dependencies:
   intl: any
   toast: ^0.1.3
   font_awesome_flutter: ^8.4.0
-
+  logs:
+    git: https://github.com/pq/logs
 dev_dependencies:
   flutter_test:
     sdk: flutter

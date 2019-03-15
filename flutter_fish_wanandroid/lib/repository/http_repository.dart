@@ -4,6 +4,8 @@ import 'package:flutter_fish_wanandroid/model/model.dart';
 class WanHttpRepository {
   static final String GET_BANNER = "/banner";
   static final String GET_HOME_ARTICLE = "/article/list/";
+  static final String GET_KNOWLEDGR_LIST = "/tree/json";
+
 
   /**
    * 获取首页的Banner
@@ -30,4 +32,19 @@ class WanHttpRepository {
     }
     return list;
   }
+
+  /**
+   * 获取知识体系的数据
+   */
+  static Future<List<KnowLedgeBeanModel>> getKnowLedgeList() async {
+    Map map = await DioUtil().get(GET_KNOWLEDGR_LIST);
+    List<KnowLedgeBeanModel> list = new List();
+
+
+    for (var json in map['data']) {
+      list.add(KnowLedgeBeanModel.fromJson(json as Map<String,dynamic>));
+    }
+    return list;
+  }
+
 }

@@ -24,7 +24,7 @@ Widget buildView(ArticleModel article, dispatch, ViewService viewService) {
                                 Border.all(color: Colors.orange, width: 0.5)),
                         child: Center(child: new Text("新")),
                       )
-                    : null,
+                    : new Container(),
                 //作者名称
                 new Expanded(child: new Text(article.author)),
                 new Text(article.niceDate)

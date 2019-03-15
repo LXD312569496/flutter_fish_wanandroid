@@ -15,6 +15,7 @@ Widget buildView(List<BannerModel> bannerList, dispatch, ViewService viewService
 
 PageView getPageView(List<BannerModel> list) {
   PageController pageController = new PageController(viewportFraction: 1.0);
+
   if (list.isNotEmpty) {
     list.insert(0, list[list.length - 1]);
     list.insert(list.length, list[1]);
