@@ -1,6 +1,7 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fish_wanandroid/model/model.dart';
+import 'action.dart';
 
 Widget buildView(KnowLedgeBeanModel state, dispatch, ViewService viewService) {
   //拼接
@@ -12,6 +13,7 @@ Widget buildView(KnowLedgeBeanModel state, dispatch, ViewService viewService) {
   return GestureDetector(
     onTap: () {
       //跳转界面
+      dispatch(ItemActionCreator.onGotoKnowledgeArticlePage(state.children,state));
     },
     child: Container(
       constraints: BoxConstraints(minHeight: 100),

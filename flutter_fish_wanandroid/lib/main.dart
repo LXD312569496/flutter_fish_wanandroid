@@ -90,7 +90,9 @@ class _MyHomePageState extends State<MyHomePage>
           controller: tabController,
         ),
         bottomNavigationBar: new Container(
-          color: Theme.of(context).primaryColor,
+          color: Theme
+              .of(context)
+              .primaryColor,
           child: new TabBar(
             tabs: tabs,
             controller: tabController,
