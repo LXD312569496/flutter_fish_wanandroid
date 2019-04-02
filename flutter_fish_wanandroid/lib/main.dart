@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_fish_wanandroid/drawer/drawer_page.dart';
 import 'package:flutter_fish_wanandroid/home/home_page.dart';
 import 'package:flutter_fish_wanandroid/knowledge/knowledge_page.dart';
+import 'package:flutter_fish_wanandroid/project/page.dart';
 import 'package:flutter_fish_wanandroid/widget/my_will_pop_scope.dart';
 import 'package:logs/logs.dart';
 
@@ -47,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage>
     children.add(new HomePage().buildPage(null));
     children.add(new KnowledgePage().buildPage(null));
     children.add(new HomePage().buildPage(null));
-    children.add(new HomePage().buildPage(null));
+    children.add(new ProjectPage().buildPage(null));
 
     tabs = new List();
     tabs.add(

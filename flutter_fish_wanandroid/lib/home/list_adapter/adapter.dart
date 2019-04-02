@@ -9,7 +9,7 @@ class HomeListAdapter extends DynamicFlowAdapter<HomePageState> {
         }, connector: HomeListConnect());
 }
 
-class HomeListConnect implements Connector<HomePageState, List<ItemBean>> {
+class HomeListConnect extends ConnOp<HomePageState, List<ItemBean>> {
   @override
   List<ItemBean> get(HomePageState state) {
     if (!state.articleList?.isEmpty) {

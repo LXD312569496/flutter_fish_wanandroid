@@ -5,7 +5,8 @@ class WanHttpRepository {
   static final String GET_BANNER = "/banner";
   static final String GET_HOME_ARTICLE = "/article/list/";
   static final String GET_KNOWLEDGR_LIST = "/tree/json";
-
+  static final String GET_PROJECT_CLASSIFY = "/project/tree/json";
+  static final String GET_PROJECT_LIST = "/project/list/";
 
   /**
    * 获取首页的Banner
@@ -40,11 +41,36 @@ class WanHttpRepository {
     Map map = await DioUtil().get(GET_KNOWLEDGR_LIST);
     List<KnowLedgeBeanModel> list = new List();
 
-
     for (var json in map['data']) {
-      list.add(KnowLedgeBeanModel.fromJson(json as Map<String,dynamic>));
+      list.add(KnowLedgeBeanModel.fromJson(json as Map<String, dynamic>));
     }
     return list;
   }
 
+  /**
+   * 获取项目分类
+   */
+  static Future<List<ProjectClassifyModel>> getProjectClassify() async {
+    Map map = await DioUtil().get(GET_PROJECT_CLASSIFY);
+
+    List<ProjectClassifyModel> list = new List();
+
+    for (var json in map['data']) {
+      list.add(ProjectClassifyModel.fromJson(json as Map<String, dynamic>));
+    }
+    return list;
+  }
+
+  /**
+   * 项目列表数据
+   */
+  static Future<List<ArticleModel>> getProjectList({int page = 0}) async {
+    Map map = await DioUtil().get(GET_PROJECT_LIST + "$page/json");
+    List<ArticleModel> list = new List();
+
+    for (map in map['data']['datas']) {
+      list.add(ArticleModel.fromJson(map));
+    }
+    return list;
+  }
 }

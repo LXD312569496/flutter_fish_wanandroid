@@ -10,7 +10,7 @@ class KnowLedgeListAdapter extends DynamicFlowAdapter<KnowledgePageState> {
 }
 
 class KnowLedgeConnect
-    implements Connector<KnowledgePageState, List<ItemBean>> {
+    extends ConnOp<KnowledgePageState, List<ItemBean>> {
   @override
   List<ItemBean> get(KnowledgePageState state) {
     return state.datalist.map((data) {
