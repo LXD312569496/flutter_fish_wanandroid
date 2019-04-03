@@ -3,18 +3,16 @@ import 'package:flutter_fish_wanandroid/model/model.dart';
 import 'package:flutter/material.dart';
 
 class KnowLedgeArticlePageState extends Cloneable<KnowLedgeArticlePageState> {
-  List<KnowLedgeBeanModel> children = new List();
+  //父类的
   KnowLedgeBeanModel parent;
 
-  int currentIndex = 0;
-
+  List<KnowLedgeBeanModel> children = new List();
 
   @override
   KnowLedgeArticlePageState clone() {
     return new KnowLedgeArticlePageState()
       ..parent
-      ..children = children
-      ..currentIndex = currentIndex;
+      ..children = children;
   }
 }
 

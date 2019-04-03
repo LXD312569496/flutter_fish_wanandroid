@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_fish_wanandroid/project/item_component/component.dart';
 import 'state.dart';
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter_fish_wanandroid/model/model.dart';
@@ -22,38 +23,49 @@ class TabBarViewWidget extends StatefulWidget {
 
 class _TabBarViewWidgetState extends State<TabBarViewWidget>
     with SingleTickerProviderStateMixin {
-  List<Widget> tabs = new List();
+  List<Widget> tabs;
 
   TabController tabController;
+  PageController pageController;
 
   @override
-  void initState() {
+  void initState() {}
+
+  @override
+  Widget build(BuildContext context) {
+    tabs = new List();
     for (ProjectClassifyModel model in widget.projectClassifyList) {
       tabs.add(new Tab(
         text: model.name,
       ));
     }
-
     tabController = new TabController(length: tabs.length, vsync: this);
-  }
+    pageController = new PageController();
 
-  @override
-  Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
         title: new Text("项目"),
         bottom: new TabBar(
+          onTap: (index) {
+            pageController.animateToPage(index,
+                duration: Duration(milliseconds: 500), curve: Curves.ease);
+          },
           isScrollable: true,
           tabs: tabs,
           controller: tabController,
         ),
       ),
       body: new PageView.builder(
-          onPageChanged: (index){
+          itemCount: tabs.length,
+          controller: pageController,
+          onPageChanged: (index) {
             tabController.animateTo(index);
           },
-          itemBuilder: (context, index) {
-            return new Text("$index");
+          itemBuilder: (context, position) {
+            Map<String, dynamic> map = {
+              "cid": widget.projectClassifyList[position].id
+            };
+            return ProjectChildPageComponent().buildPage(map);
           }),
     );
   }

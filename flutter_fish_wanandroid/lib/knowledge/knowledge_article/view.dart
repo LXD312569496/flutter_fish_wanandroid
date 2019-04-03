@@ -1,6 +1,7 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fish_wanandroid/model/model.dart';
+import 'package:flutter_fish_wanandroid/project/item_component/component.dart';
 import 'state.dart';
 
 Widget buildView(
@@ -11,10 +12,13 @@ Widget buildView(
   }).toList();
 
   List<Widget> items = List.generate(state.children.length, (index) {
-    return new Center(
-      child: new Text(state.children[index].name),
-    );
-  });
+
+    Map<String, dynamic> map = {
+      "cid": state.children[index].id
+    };
+    return ProjectChildPageComponent().buildPage(map);
+
+  }).toList();
 
   return DefaultTabController(
     length: tabs.length,

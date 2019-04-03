@@ -1,4 +1,6 @@
 import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter_fish_wanandroid/home/article_list_component/component.dart';
+import 'package:flutter_fish_wanandroid/home/article_list_component/state.dart';
 import 'package:flutter_fish_wanandroid/home/banner_component/component.dart';
 import 'package:flutter_fish_wanandroid/home/banner_component/state.dart';
 import 'state.dart';
@@ -15,9 +17,9 @@ class HomePage extends Page<HomePageState, Map<String, dynamic>> {
           initState: initState,
           reducer:buildReducer(),
           dependencies: Dependencies<HomePageState>(
-            adapter:HomeListAdapter() ,
             slots: <String, Dependent<HomePageState>>{
-              "banner": BannerConnector() + BannerComponent()
+              "banner": BannerConnector() + BannerComponent(),
+              "articleList":HomeArticleConnect()+ArticleListComponent()
             },
           ),
         );

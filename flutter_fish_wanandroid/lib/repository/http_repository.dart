@@ -5,6 +5,7 @@ class WanHttpRepository {
   static final String GET_BANNER = "/banner";
   static final String GET_HOME_ARTICLE = "/article/list/";
   static final String GET_KNOWLEDGR_LIST = "/tree/json";
+  static final String GET_KOOWLEDGE_ARTICLE_LIST = "/article/list";
   static final String GET_PROJECT_CLASSIFY = "/project/tree/json";
   static final String GET_PROJECT_LIST = "/project/list/";
 
@@ -48,6 +49,21 @@ class WanHttpRepository {
   }
 
   /**
+   * 获取知识体系下的文章
+   */
+  static Future<List<ArticleModel>> getKonwLedgeArticleList(int cid,
+      {int page = 0}) async {
+    Map map =
+        await DioUtil().get(GET_KOOWLEDGE_ARTICLE_LIST + "$page/json?cid=$cid");
+    List<ArticleModel> list = new List();
+
+    for (map in map['data']['datas']) {
+      list.add(ArticleModel.fromJson(map));
+    }
+    return list;
+  }
+
+  /**
    * 获取项目分类
    */
   static Future<List<ProjectClassifyModel>> getProjectClassify() async {
@@ -64,8 +80,9 @@ class WanHttpRepository {
   /**
    * 项目列表数据
    */
-  static Future<List<ArticleModel>> getProjectList({int page = 0}) async {
-    Map map = await DioUtil().get(GET_PROJECT_LIST + "$page/json");
+  static Future<List<ArticleModel>> getProjectList(int cid,
+      {int page = 0}) async {
+    Map map = await DioUtil().get(GET_PROJECT_LIST + "$page/json?cid=$cid");
     List<ArticleModel> list = new List();
 
     for (map in map['data']['datas']) {
