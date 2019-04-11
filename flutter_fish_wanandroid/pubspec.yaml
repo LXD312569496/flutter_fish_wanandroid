@@ -32,6 +32,9 @@ dependencies:
   font_awesome_flutter: ^8.4.0
   logs:
     git: https://github.com/pq/logs
+  flutter_webview_plugin: ^0.3.3
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

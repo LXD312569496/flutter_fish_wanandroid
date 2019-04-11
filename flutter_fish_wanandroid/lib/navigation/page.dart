@@ -6,10 +6,12 @@ import 'effect.dart';
 import 'reducer.dart';
 import 'state.dart';
 import 'view.dart';
+import 'package:flutter_fish_wanandroid/widget/keep_alive_widget.dart';
 
 class NavigationPage extends Page<NavigationPageState, Map<String, dynamic>> {
   NavigationPage()
       : super(
+    wrapper:keepAliveWrapper,
           initState: initState,
           effect: buildEffect(),
           reducer: buildReducer(),
