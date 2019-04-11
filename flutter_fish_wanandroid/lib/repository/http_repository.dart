@@ -8,6 +8,7 @@ class WanHttpRepository {
   static final String GET_KOOWLEDGE_ARTICLE_LIST = "/article/list";
   static final String GET_PROJECT_CLASSIFY = "/project/tree/json";
   static final String GET_PROJECT_LIST = "/project/list/";
+  static final String GET_NAVIGATION_LIST = "/navi/json";
 
   /**
    * 获取首页的Banner
@@ -87,6 +88,19 @@ class WanHttpRepository {
 
     for (map in map['data']['datas']) {
       list.add(ArticleModel.fromJson(map));
+    }
+    return list;
+  }
+
+  /**
+   * 获取导航
+   */
+  static Future<List<NavigationModel>> getNavigationList() async {
+    Map map = await DioUtil().get(GET_NAVIGATION_LIST);
+    List<NavigationModel> list = new List();
+
+    for (map in map['data']) {
+      list.add(NavigationModel.fromJson(map));
     }
     return list;
   }
