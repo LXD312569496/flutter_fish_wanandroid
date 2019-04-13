@@ -1,10 +1,10 @@
 import 'package:fish_redux/fish_redux.dart';
 
-//TODO replace with your own action
-enum LeftItemAction { action }
+enum LeftItemAction { onClickLeftItem }
 
 class LeftItemActionCreator {
-  static Action onAction() {
-    return const Action(LeftItemAction.action);
+  static Action onClickLeftItemAction(int position) {
+    return  Action(LeftItemAction.onClickLeftItem,payload: position);
   }
+
 }

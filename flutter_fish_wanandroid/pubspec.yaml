@@ -21,7 +21,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   random_pk: any
   fluro: ^1.4.0
-  fish_redux: ^0.1.1
+  fish_redux: ^0.1.5
   shared_preferences: ^0.5.1+1
   dio: 2.0.22
   cached_network_image: ^0.7.0

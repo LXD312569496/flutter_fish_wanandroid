@@ -3,7 +3,8 @@ import 'package:flutter_fish_wanandroid/navigation/left_listview_component/left_
 import 'package:flutter_fish_wanandroid/navigation/left_listview_component/left_listview_adapter/left_item_component/state.dart';
 import 'package:flutter_fish_wanandroid/navigation/left_listview_component/state.dart';
 
-class LeftListViewAdapter extends DynamicFlowAdapter<LeftListViewComponentState> {
+class LeftListViewAdapter
+    extends DynamicFlowAdapter<LeftListViewComponentState> {
   LeftListViewAdapter()
       : super(
           pool: <String, Component<Object>>{"normal": LeftItemComponent()},
@@ -11,11 +12,14 @@ class LeftListViewAdapter extends DynamicFlowAdapter<LeftListViewComponentState>
         );
 }
 
-class _LeftListViewConnector extends ConnOp<LeftListViewComponentState, List<ItemBean>> {
+class _LeftListViewConnector
+    extends ConnOp<LeftListViewComponentState, List<ItemBean>> {
   @override
   List<ItemBean> get(LeftListViewComponentState state) {
+    int index = 0;
     return state.nameList.map((name) {
-      return new ItemBean("normal", LeftItemState(name:name));
+      return new ItemBean(
+          "normal", LeftItemState(name: name, position: index++));
     }).toList();
   }
 

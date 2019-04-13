@@ -13,23 +13,37 @@ Widget buildView(KnowLedgeBeanModel state, dispatch, ViewService viewService) {
   return GestureDetector(
     onTap: () {
       //跳转界面
-      dispatch(ItemActionCreator.onGotoKnowledgeArticlePage(state.children,state));
+      dispatch(
+          ItemActionCreator.onGotoKnowledgeArticlePage(state.children, state));
     },
-    child: Container(
-      constraints: BoxConstraints(minHeight: 100),
-      child: new Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          new Text(
-            "${state.name}",
-            style: TextStyle(fontSize: 20, color: Colors.black),
+    child: Row(
+      children: <Widget>[
+        Expanded(
+          child: IntrinsicHeight(
+            child: new Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: new Text(
+                    "${state.name}",
+                    style: TextStyle(fontSize: 20, color: Colors.black),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: new Text(
+                    "${childString}",
+                    style: TextStyle(color: Colors.black54, fontSize: 15),
+                  ),
+                ),
+                new Divider()
+              ],
+            ),
           ),
-          new Text(
-            "${childString}",
-            style: TextStyle(color: Colors.grey),
-          )
-        ],
-      ),
+        ),
+        Center(child: new IconButton(icon: Icon(Icons.navigate_next), onPressed: () {})),
+      ],
     ),
   );
 }

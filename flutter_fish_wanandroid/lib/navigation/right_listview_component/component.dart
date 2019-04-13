@@ -4,11 +4,12 @@ import 'package:flutter_fish_wanandroid/navigation/state.dart';
 
 import 'state.dart';
 import 'view.dart';
-
+import 'effect.dart';
 class RightListViewComponent extends Component<RightListViewComponentState> {
   RightListViewComponent()
       : super(
             view: buildView,
+          effect:buildEffect(),
             dependencies: Dependencies<RightListViewComponentState>(
                 adapter: RightListViewAdapter(),
                 slots: <String, Dependent<RightListViewComponentState>>{

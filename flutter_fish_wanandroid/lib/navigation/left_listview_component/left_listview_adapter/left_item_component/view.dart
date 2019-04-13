@@ -4,9 +4,13 @@ import 'package:flutter/material.dart';
 import 'action.dart';
 import 'state.dart';
 
-Widget buildView(LeftItemState state, Dispatch dispatch, ViewService viewService) {
+Widget buildView(
+    LeftItemState state, Dispatch dispatch, ViewService viewService) {
   return Container(
     height: 60,
-    child: Center(child: new Text("${state.name}")),
+    child: GestureDetector(
+        onTap: () {
+          dispatch(LeftItemActionCreator.onClickLeftItemAction(state.position));
+        }, child: Center(child: new Text("${state.name}"))),
   );
 }

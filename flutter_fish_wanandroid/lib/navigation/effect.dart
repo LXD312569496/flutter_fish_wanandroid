@@ -15,15 +15,15 @@ Effect<NavigationPageState> buildEffect() {
 
 void _init(Action action, Context<NavigationPageState> ctx) {
   WanHttpRepository.getNavigationList().then((List<NavigationModel> list) {
-    ctx.dispatch(NavigationPageActionCreator.loadDataAction(list));
+    if (!ctx.isDisposed) {
+      ctx.dispatch(NavigationPageActionCreator.loadDataAction(list));
+    }
   });
 }
 
 void _onGotoWebView(Action action, Context<NavigationPageState> ctx) {
-  Navigator.of(ctx.context)
-      .push(new MaterialPageRoute(builder: (context){
-        ArticleModel article=action.payload;
-        return WebViewPage(article.link,article.title);
+  Navigator.of(ctx.context).push(new MaterialPageRoute(builder: (context) {
+    ArticleModel article = action.payload;
+    return WebViewPage(article.link, article.title);
   }));
-
 }

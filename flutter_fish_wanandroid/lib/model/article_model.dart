@@ -5,6 +5,7 @@ class ArticleModel {
   String niceDate;
   String chapterName;
   bool fresh;
+  String envelopePic;
 
   ArticleModel.fromJson(Map<String, dynamic> json)
       : title = json['title'],
@@ -12,7 +13,8 @@ class ArticleModel {
         link = json['link'],
         niceDate = json['niceDate'],
         chapterName = json['chapterName'],
-        fresh = json['fresh'];
+        fresh = json['fresh'],
+        envelopePic = json['envelopePic'];
 
   Map<String, dynamic> toJson() => {
         'title': title,
@@ -21,6 +23,7 @@ class ArticleModel {
         "niceDate": niceDate,
         "chapterName": chapterName,
         "fresh": fresh,
+        "envelopePic": envelopePic
       };
 }
 

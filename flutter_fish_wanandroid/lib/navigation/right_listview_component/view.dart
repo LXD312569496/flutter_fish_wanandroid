@@ -9,6 +9,7 @@ Widget buildView(RightListViewComponentState state, Dispatch dispatch,
 
   return Container(
     child: new ListView.builder(
+      controller: state.scrollController,
       itemBuilder: listAdapter.itemBuilder,
       itemCount: listAdapter.itemCount,
     ),

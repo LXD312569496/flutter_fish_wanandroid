@@ -11,6 +11,8 @@ Effect<KnowledgePageState> buildEffect() {
 
 _init(Action action, Context<KnowledgePageState> ctx) {
   WanHttpRepository.getKnowLedgeList().then((list) {
-    ctx.dispatch(KnowLedgeActionCreator.loadDataAction(list));
+    if (!ctx.isDisposed) {
+      ctx.dispatch(KnowLedgeActionCreator.loadDataAction(list));
+    }
   });
 }

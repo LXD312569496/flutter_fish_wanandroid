@@ -17,14 +17,14 @@ Widget buildView(
           ),
           new Expanded(
             flex: 2,
-//          child: viewService.buildComponent("right_list_view"),
-            child: new SingleChildScrollView(
-              child: new Wrap(
-                spacing: 10,
-                runSpacing: 10,
-                children: getRightItems(dispatch, state.list),
-              ),
-            ),
+          child: viewService.buildComponent("right_list_view"),
+//            child: new SingleChildScrollView(
+//              child: new Wrap(
+//                spacing: 10,
+//                runSpacing: 10,
+//                children: getRightItems(dispatch, state.list),
+//              ),
+//            ),
           ),
         ],
       ),

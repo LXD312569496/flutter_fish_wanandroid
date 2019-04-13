@@ -10,7 +10,9 @@ Effect<ProjectState> buildEffect() {
 
 void _init(Action action, Context<ProjectState> ctx) {
   //获取项目分类数据
-  WanHttpRepository.getProjectClassify().then((list){
-    ctx.dispatch(ProjectActionCreator.loadClassifyDataAction(list));
+  WanHttpRepository.getProjectClassify().then((list) {
+    if (!ctx.isDisposed) {
+      ctx.dispatch(ProjectActionCreator.loadClassifyDataAction(list));
+    }
   });
 }
