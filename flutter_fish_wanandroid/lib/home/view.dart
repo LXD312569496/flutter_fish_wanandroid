@@ -9,6 +9,7 @@ Widget buildView(HomePageState state, dispatch, ViewService viewService) {
     ),
     body: Container(
       child: CustomScrollView(
+        controller: state.scrollController,
         slivers: <Widget>[
           new SliverToBoxAdapter(
             child: viewService.buildComponent("banner"),

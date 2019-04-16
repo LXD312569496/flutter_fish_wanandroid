@@ -11,16 +11,16 @@ Widget buildView(ArticleModel article, dispatch, ViewService viewService) {
     },
     child: Row(
       children: <Widget>[
-        //判断图片是否为空
-        article.envelopePic == null || article.envelopePic.isEmpty
-            ? Container()
-            : new Padding(
-                padding: EdgeInsets.all(8),
-                child: new Image(
-                  image: NetworkImage(article.envelopePic),
-                  height: 200,
-                ),
-              ),
+//        //判断图片是否为空
+//        article.envelopePic == null || article.envelopePic.isEmpty
+//            ? Container()
+//            : new Padding(
+//                padding: EdgeInsets.all(8),
+//                child: new Image(
+//                  image: NetworkImage(article.envelopePic),
+//                  height: 200,
+//                ),
+//              ),
         //显示右侧的内容
         Expanded(
           child: Column(

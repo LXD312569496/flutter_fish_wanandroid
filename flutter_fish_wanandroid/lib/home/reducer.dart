@@ -20,6 +20,6 @@ HomePageState loadBannerData(HomePageState state, Action action) {
 HomePageState loadArticleData(HomePageState state, Action action) {
   HomePageState newState = state.clone();
   List<ArticleModel> list = action.payload;
-  newState.articleList = list;
+  newState.articleList.addAll(list);
   return newState;
 }

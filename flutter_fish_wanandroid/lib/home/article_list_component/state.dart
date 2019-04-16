@@ -3,6 +3,7 @@ import 'package:flutter_fish_wanandroid/home/state.dart';
 import 'package:flutter_fish_wanandroid/knowledge/knowledge_article/component/state.dart';
 import 'package:flutter_fish_wanandroid/model/model.dart';
 import 'package:flutter_fish_wanandroid/project/item_component/state.dart';
+import "package:pull_to_refresh/pull_to_refresh.dart";
 
 /**
  * 封装为一个统一的列表
@@ -35,8 +36,8 @@ class ProjectArticleConnect
   }
 }
 
-
-class KnowLedgeArticleConnect extends ConnOp<KnowLedgeArticleState,ArticleListState>{
+class KnowLedgeArticleConnect
+    extends ConnOp<KnowLedgeArticleState, ArticleListState> {
   @override
   ArticleListState get(KnowLedgeArticleState state) {
     ArticleListState listState = new ArticleListState();
